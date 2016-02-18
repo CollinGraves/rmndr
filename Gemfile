@@ -20,6 +20,10 @@ gem 'tzinfo-data'
 gem 'react-rails'
 gem 'haml'
 gem 'haml-rails'
+gem 'phony_rails'
+gem 'twilio-ruby'
+
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -35,4 +39,6 @@ end
 
 group :development do
   gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end

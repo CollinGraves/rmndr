@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160218011843) do
+ActiveRecord::Schema.define(version: 20160218015820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,5 +31,18 @@ ActiveRecord::Schema.define(version: 20160218011843) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "phones", force: true do |t|
+    t.string "number"
+  end
+
+  create_table "reminders", force: true do |t|
+    t.string   "title",         null: false
+    t.string   "body",          null: false
+    t.integer  "phone_id",      null: false
+    t.datetime "scheduled_for", null: false
+  end
+
+  add_index "reminders", ["phone_id"], name: "index_reminders_on_phone_id", using: :btree
 
 end
